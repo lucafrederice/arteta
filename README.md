@@ -1,5 +1,23 @@
 
----
+# arteta
+
+`arteta` is a lightweight, powerful React custom hook library designed to enhance state management with actions in React applications. The core feature of this library is the `useStateAction` hook, which simplifies the process of updating state based on actions, making state management more predictable and organized.
+
+## Features
+
+- Simplifies state management in React components.
+- Offers an easy way to define actions for state updates.
+- Supports TypeScript for type safety and better development experience.
+
+## Installation
+
+Install `arteta` using npm or yarn:
+
+```bash
+npm install arteta
+# or
+yarn add arteta
+```
 
 ## Usage
 
@@ -50,3 +68,22 @@ In this example:
 This example illustrates the versatility and power of the `useStateAction` hook in creating clear and concise state management logic within React components.
 
 ---
+## API Reference
+
+### `useStateAction<S>(initialState: S): [S, CreateAction<S>]`
+
+- `initialState`: The initial state value of the component.
+- Returns a stateful value, and a function to create actions.
+
+### `createAction<P>({ type, callback }): Action`
+
+- `type`: A string representing the action type.
+- `callback`: A function that defines how the state should be updated when the action is dispatched.
+
+## Contributing
+
+Contributions are always welcome! Please see the [GitHub repository](https://github.com/lucafrederice/arteta) for how to contribute to `arteta`.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
