@@ -3,15 +3,16 @@ import { Dispatch, useReducer } from "react";
 interface Action<S, P> {
     type: string;
     payload?: P;
-    callback: (state: S, payload: P) => S;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    callback: (...props: any[]) => S;
 }
 
 type CreateAction<S> = <P>(
     action: {
         type: string;
-        callback: (state: S, payload: P | unknown) => S;
+        callback: (state: S, payload: P) => S;
     }
-) => [P] extends [undefined] ? () => void : (payload: P) => void;
+) => [P] extends [never] ? () => void : [P] extends [undefined] ? (payload?: P) => void : (payload: P) => void;
 
 type AddDispatch = <S>(dispatch: Dispatch<Action<S, unknown>>) => CreateAction<S>;
 
